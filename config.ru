@@ -1,6 +1,6 @@
 require 'bundler'
 Bundler.require
 
-require './lib/app.rb'
+require './lib/obituary.rb'
 
-run Talker
+run Obituary
