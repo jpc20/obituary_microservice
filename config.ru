@@ -1,6 +1,6 @@
 require 'bundler'
 Bundler.require
 
-require './lib/obituary.rb'
+require_relative './app/lib/obituary_microservice.rb'
 
-run Obituary
+run ObituaryMicroservice
