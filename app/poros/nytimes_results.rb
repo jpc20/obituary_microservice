@@ -12,8 +12,11 @@ class NytimesResults
   private
   def format_obituary_data(obituary_data)
     {
-      name: obituary_data[:headline][:main].split(/[,;]/).first,
-      age: obituary_data[:headline][:main].split(/[,;)]/).find{ |attr| attr.to_i > 0 }.to_i
+      headline: obituary_data[:headline][:main],
+      abstract: obituary_data[:abstract],
+      web_url: obituary_data[:web_url],
+      pub_date: obituary_data[:pub_date],
+      word_count: obituary_data[:word_count]
     }
   end
 end

@@ -5,8 +5,11 @@ class ObituarySerializer
         "data": {
                   "type": "obituary",
                   "attributes": {
-                                  'name': obituary.name,
-                                  'age': obituary.age
+                                  'headline': obituary.headline,
+                                  'abstract': obituary.abstract,
+                                  'web_url': obituary.web_url,
+                                  'pub_date': obituary.pub_date,
+                                  'word_count': obituary.word_count
                                 }
                 }
       }
