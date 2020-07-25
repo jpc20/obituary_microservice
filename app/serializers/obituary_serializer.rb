@@ -1,5 +1,4 @@
 class ObituarySerializer
-
   def format_obituaries(obituaries)
     obituaries.map do |obituary|
       {
