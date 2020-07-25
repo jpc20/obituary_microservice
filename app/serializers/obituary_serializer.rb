@@ -1,4 +1,5 @@
 class ObituarySerializer
+
   def format_obituaries(obituaries)
     obituaries.map do |obituary|
       {
@@ -13,6 +14,6 @@ class ObituarySerializer
                                 }
                 }
       }
-    end.to_json
+    end
   end
 end
