@@ -1,12 +1,12 @@
 require 'bundler'
 Bundler.require :default, :test
-require_relative '../lib/obituary.rb'
+require_relative '../lib/obituary_microservice.rb'
 
 class ObituaryTest < Minitest::Test
 	include Rack::Test::Methods
 
 	def app
-    Obituary.new
+    ObituaryMicroservice.new
 	end
 
   def test_it_returns_a_200
@@ -14,8 +14,8 @@ class ObituaryTest < Minitest::Test
   	assert last_response.ok?
   end
 
-  def test_it_returns_obituaries_json
+  def test_it_returns_formatted_obituaries_json
   	get '/'
-  	assert_equal 'Obituaries', JSON.parse(last_response.body)['response']['docs'].first['section_name']
+  	assert_equal 'obituary', JSON.parse(last_response.body).first['data']['type']
   end
 end
