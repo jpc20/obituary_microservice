@@ -8,4 +8,5 @@ group :test do
   gem 'rack-test', require: 'rack/test'
   gem 'nokogiri'
   gem 'pry'
+  gem 'rake'
 end

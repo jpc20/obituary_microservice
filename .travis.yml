@@ -1,0 +1,11 @@
+before_install:
+  - gem install bundler
+langauge: ruby
+rbenv:
+  - 2.5.3
+dist: xenial
+deploy:
+  provider: heroku
+  api_key:
+    secure: JH9nOUuNBwyWtSRdv5wfBui/wvJ/HDzz9q7hxH/8DyOzRigr1N/IZt1msqHkDd5zcbuD3ToWaxGzNadTivfarQ714w3R9w2+WMIejbyaCGYwBRTQ1EJkSBccGJW1k5VFn8SxHvTGTjOmFyDCzdfG2TCWr7dxIw3ZMXPQehH/Pru8274ICJPzfYkyYy0WIx4a/XCtnwt1xRKgQuG6P0b4tOjvS6Mfbq74MY5SgZOZTClL1dGUBgbTQk4mVoPlYx9lPLE8iWqty4CjcZj2Fg0Y5HtqJTq70NPqEJPD6fflTxGKAQcx0tQLqkvmlnS/RR9a6eHESo2/kzEGA/OVajo+wsZGrYYcZmCEenFd1SvQDGA5jPewSNj8MeLZge0tPke/4xgMXU7sPFYcpq5oCgDgt51pvqw7kL/IJL0zuB2KCTIm+kiW1rNQHqHFvcRSMdeAMgM8ZHI2PEsGOfBOt39Hf2+tZBoxsyG3c75oASme9K0nJt02lb9m5NAVUEYmdYnGyRcaXZPBcY/t7mRK1GylBi8xV9Ms6gaxnHobTAhbL9vi2+lb5umfmIDNkU2IdqqkPmUahp8g2EE/wIIez5zQx0ZmY7jrEtnxG5IKJLlbjh5pIlQQXRhQr+52SeupyGtvWBfGwqfWwKGZv6N3XroWcIvwiyHqLJQzeudQXkNTgfY=
+  app: obituary-microservice
