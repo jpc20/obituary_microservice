@@ -3,7 +3,28 @@ require_relative './obituary.rb'
 
 class NytimesResults
   def get_obituaries
-    json = NytimesService.new.get_obituaries    
+    json = NytimesService.new.get_obituaries
+    json[:response][:docs].map do |obituary_data|
+      Obituary.new(format_obituary_data(obituary_data))
+    end
+  end
+
+  def get_covid_obituaries
+    json = NytimesService.new.get_covid_obituaries
+    json[:response][:docs].map do |obituary_data|
+      Obituary.new(format_obituary_data(obituary_data))
+    end
+  end
+
+  def get_obituaries_by_name(name)
+    json = NytimesService.new.get_obituaries_by_name(name)
+    json[:response][:docs].map do |obituary_data|
+      Obituary.new(format_obituary_data(obituary_data))
+    end
+  end
+
+  def get_obituaries_by_date(beginning_date, ending_date)
+    json = NytimesService.new.get_obituaries_by_date(beginning_date, ending_date)
     json[:response][:docs].map do |obituary_data|
       Obituary.new(format_obituary_data(obituary_data))
     end

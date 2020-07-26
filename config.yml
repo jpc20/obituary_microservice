@@ -1,0 +1,1 @@
+NYT_API_KEY: <%= ENV['NYT_API_KEY'] %>
