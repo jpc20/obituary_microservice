@@ -26,6 +26,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rake (13.0.1)
     ruby2_keywords (0.0.2)
     safe_yaml (1.0.5)
     sinatra (2.0.8.1)
@@ -49,6 +50,7 @@ DEPENDENCIES
   nokogiri
   pry
   rack-test
+  rake
   sinatra
   vcr
   webmock
