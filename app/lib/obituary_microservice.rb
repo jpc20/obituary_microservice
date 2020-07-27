@@ -21,8 +21,12 @@ class ObituaryMicroservice < Sinatra::Base
   end
 
   get '/name' do
-  
     obituaries = NytimesResults.new.get_obituaries_by_name(params[:name])
+    ObituarySerializer.new.format_obituaries(obituaries).to_json
+  end
+
+  get '/recent' do
+    obituaries = NytimesResults.new.get_most_recent_obituaries
     ObituarySerializer.new.format_obituaries(obituaries).to_json
   end
 end

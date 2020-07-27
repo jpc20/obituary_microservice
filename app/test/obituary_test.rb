@@ -33,4 +33,9 @@ class ObituaryTest < Minitest::Test
 			get '/date', beginning_date: '20170101', ending_date: '20190101'
 			assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
 	end
+
+	def test_returns_most_recent_obituaries
+		get '/recent'
+		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
+	end
 end
