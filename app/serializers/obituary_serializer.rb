@@ -9,7 +9,8 @@ class ObituarySerializer
                                   'abstract': obituary.abstract,
                                   'web_url': obituary.web_url,
                                   'pub_date': obituary.pub_date,
-                                  'word_count': obituary.word_count
+                                  'word_count': obituary.word_count,
+                                  'image': obituary.image
                                 }
                 }
       }

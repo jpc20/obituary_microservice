@@ -54,7 +54,8 @@ class NytimesResults
       abstract: obituary_data[:abstract],
       web_url: obituary_data[:web_url],
       pub_date: obituary_data[:pub_date],
-      word_count: obituary_data[:word_count]
+      word_count: obituary_data[:word_count],
+      image: obituary_data[:multimedia]
     }
   end
 end
