@@ -38,6 +38,22 @@ class NytimesService
     JSON.parse(response.body, symbolize_names: true)
   end
 
+  def get_most_recent_obituaries
+    response = conn.get do |req|
+      req.params['fq'] = 'section_name:("obituaries")'
+      req.params['sort'] = 'newest'
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def get_advanced_obituaries(name, year)
+
+    response = conn.get do |req|
+      req.params['fq'] = "section_name:(obituaries) AND headline:(#{name}) AND pub_year:(#{year})"
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   private
 
   def conn

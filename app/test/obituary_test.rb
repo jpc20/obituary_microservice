@@ -12,6 +12,7 @@ class ObituaryTest < Minitest::Test
   def test_it_returns_a_200
   	get '/'
   	assert last_response.ok?
+
   end
 
   def test_it_returns_formatted_obituaries_json
@@ -32,5 +33,15 @@ class ObituaryTest < Minitest::Test
 	def test_it_returns_formatted_obituary_data_by_date
 			get '/date', beginning_date: '20170101', ending_date: '20190101'
 			assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
+	end
+
+	def test_returns_most_recent_obituaries
+		get '/recent'
+		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
+	end
+
+	def test_advanced_search
+		get '/advanced', name: 'George', date: 2019
+		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
 	end
 end

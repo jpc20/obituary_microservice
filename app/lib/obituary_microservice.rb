@@ -8,11 +8,8 @@ class ObituaryMicroservice < Sinatra::Base
   end
 
   get "/covid" do
-
     obituaries = NytimesResults.new.get_covid_obituaries
-
     ObituarySerializer.new.format_obituaries(obituaries).to_json
-
   end
 
   get '/date' do
@@ -21,8 +18,17 @@ class ObituaryMicroservice < Sinatra::Base
   end
 
   get '/name' do
-  
     obituaries = NytimesResults.new.get_obituaries_by_name(params[:name])
+    ObituarySerializer.new.format_obituaries(obituaries).to_json
+  end
+
+  get '/recent' do
+    obituaries = NytimesResults.new.get_most_recent_obituaries
+    ObituarySerializer.new.format_obituaries(obituaries).to_json
+  end
+
+  get '/advanced' do
+    obituaries = NytimesResults.new.get_advanced_obituaries(params[:name], params[:date])
     ObituarySerializer.new.format_obituaries(obituaries).to_json
   end
 end
