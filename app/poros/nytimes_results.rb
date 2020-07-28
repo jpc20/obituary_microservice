@@ -37,6 +37,16 @@ class NytimesResults
     end
   end
 
+  def get_advanced_obituaries(name, date)
+
+    json = NytimesService.new.get_advanced_obituaries(name, date)
+    json[:response][:docs].map do |obituary_data|
+      Obituary.new(format_obituary_data(obituary_data))
+    end
+  end
+
+
+
   private
   def format_obituary_data(obituary_data)
     {

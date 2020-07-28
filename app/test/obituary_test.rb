@@ -38,4 +38,9 @@ class ObituaryTest < Minitest::Test
 		get '/recent'
 		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
 	end
+
+	def test_advanced_search
+		get '/advanced', name: 'George', date: 2019
+		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
+	end
 end
