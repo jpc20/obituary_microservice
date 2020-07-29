@@ -31,4 +31,9 @@ class ObituaryMicroservice < Sinatra::Base
     obituaries = NytimesResults.new.get_advanced_obituaries(params[:name], params[:date])
     ObituarySerializer.new.format_obituaries(obituaries).to_json
   end
+
+  get '/advanced/year' do
+    obituaries = NytimesResults.new.get_obituaries_by_year(params[:date])
+    ObituarySerializer.new.format_obituaries(obituaries).to_json
+  end
 end
