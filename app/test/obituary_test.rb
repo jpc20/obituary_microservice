@@ -47,7 +47,6 @@ class ObituaryTest < Minitest::Test
 
 	def test_advanced_search_by_year
 		get '/advanced/year', date: 2019
-		require "pry"; binding.pry
 		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
 	end
 end
