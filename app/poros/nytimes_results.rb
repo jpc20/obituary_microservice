@@ -43,8 +43,14 @@ class NytimesResults
   end
 
   def get_advanced_obituaries(name, date)
-
     json = NytimesService.new.get_advanced_obituaries(name, date)
+    json[:response][:docs].map do |obituary_data|
+      Obituary.new(format_obituary_data(obituary_data))
+    end
+  end
+
+  def get_obituaries_by_year(date)
+    json = NytimesService.new.get_obituaries_by_year(date)
     json[:response][:docs].map do |obituary_data|
       Obituary.new(format_obituary_data(obituary_data))
     end

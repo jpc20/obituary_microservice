@@ -7,7 +7,6 @@ class NytimesService
       req.params['fq'] = 'news_desk:("obituaries")'
       req.params['fq'] = 'section_name:("obituaries")'
     end
-
     JSON.parse(response.body, symbolize_names: true)
   end
 
@@ -47,9 +46,15 @@ class NytimesService
   end
 
   def get_advanced_obituaries(name, year)
-
     response = conn.get do |req|
       req.params['fq'] = "section_name:(obituaries) AND headline:(#{name}) AND pub_year:(#{year})"
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def get_obituaries_by_year(year)
+    response = conn.get do |req|
+      req.params['fq'] = "section_name:(obituaries) AND pub_year:(#{year})"
     end
     JSON.parse(response.body, symbolize_names: true)
   end
@@ -60,6 +65,5 @@ class NytimesService
     Faraday.new(url:'https://api.nytimes.com/svc/search/v2//articlesearch.json') do |f|
       f.params['api-key'] = ENV['NYT_API_KEY']
     end
-  #  JSON.parse(response.body, symbolize_names: true)
   end
 end
