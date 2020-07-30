@@ -10,7 +10,6 @@ class NytimesResults
   def get_covid_obituaries
     parsed_json = NytimesService.new.get_covid_obituaries
     data_to_obituaries(parsed_json)
-
   end
 
   def get_obituaries_by_name(name)

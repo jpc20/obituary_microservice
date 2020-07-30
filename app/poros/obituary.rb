@@ -7,7 +7,6 @@ class Obituary
               :image
 
   def initialize(obituary_data)
-
     @headline = obituary_data[:headline]
     @abstract = obituary_data[:abstract]
     @web_url = obituary_data[:web_url]
@@ -17,7 +16,6 @@ class Obituary
   end
 
   def sort_images(data)
-
     if data.empty?
       nil
     else
