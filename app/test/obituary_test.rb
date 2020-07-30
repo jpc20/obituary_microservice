@@ -10,43 +10,42 @@ class ObituaryTest < Minitest::Test
 	end
 
   def test_it_returns_a_200
-  	get '/'
+  	get '/api/v1/'
   	assert last_response.ok?
-
   end
 
   def test_it_returns_formatted_obituaries_json
-	  get '/'
+	  get '/api/v1/'
 	  assert_equal 'obituary', JSON.parse(last_response.body).first['data']['type']
 	end
 
 	def test_it_returns_formatted_covid_obituaries_json
-		get '/covid'
+		get '/api/v1/covid'
 		assert_equal 'obituary', JSON.parse(last_response.body).first['data']['type']
 	end
 
 	def test_it_returns_formatted_obituary_data_by_name
-		get '/name', name: "George"
+		get '/api/v1/name', name: "George"
 		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
 	end
 
 	def test_it_returns_formatted_obituary_data_by_date
-		get '/date', beginning_date: '20170101', ending_date: '20190101'
+		get '/api/v1/date', beginning_date: '20170101', ending_date: '20190101'
 		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
 	end
 
 	def test_returns_most_recent_obituaries
-		get '/recent'
+		get '/api/v1/recent'
 		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
 	end
 
 	def test_advanced_search
-		get '/advanced', name: 'George', date: 2019
+		get '/api/v1/advanced', name: 'George', date: 2019
 		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
 	end
 
 	def test_advanced_search_by_year
-		get '/advanced/year', date: 2019
+		get '/api/v1/advanced/year', date: 2019
 		assert_equal "obituary", JSON.parse(last_response.body).first['data']['type']
 	end
 end
